@@ -1,66 +1,44 @@
 class ZonasController < ApplicationController
   before_action :set_zona, only: [:show, :edit, :update, :destroy]
 
-  # GET /zonas
-  # GET /zonas.json
   def index
     @zonas = Zona.all
   end
 
-  # GET /zonas/1
-  # GET /zonas/1.json
   def show
+    @zona = Zona.find(params[:id])
   end
 
-  # GET /zonas/new
   def new
     @zona = Zona.new
   end
 
-  # GET /zonas/1/edit
-  def edit
-  end
-
-  # POST /zonas
-  # POST /zonas.json
   def create
-    @zona = Zona.new(zona_params)
-
-    respond_to do |format|
-      if @zona.save
-        format.html { redirect_to @zona, notice: 'Zona was successfully created.' }
-        format.json { render :show, status: :created, location: @zona }
-      else
-        format.html { render :new }
-        format.json { render json: @zona.errors, status: :unprocessable_entity }
-      end
-    end
+    @zonas = Zona.all
+    @zona = Zona.create(zona_params)
   end
 
-  # PATCH/PUT /zonas/1
-  # PATCH/PUT /zonas/1.json
+  def edit
+    @zona = Zona.find(params[:id])
+  end
+
   def update
-    respond_to do |format|
-      if @zona.update(zona_params)
-        format.html { redirect_to @zona, notice: 'Zona was successfully updated.' }
-        format.json { render :show, status: :ok, location: @zona }
-      else
-        format.html { render :edit }
-        format.json { render json: @zona.errors, status: :unprocessable_entity }
-      end
-    end
+    @zonas = Zona.all
+    @zona = Zona.find(params[:id])
+
+    @zona.update_attributes(zona_params)
   end
 
-  # DELETE /zonas/1
-  # DELETE /zonas/1.json
+  def delete
+    @zona = Zona.find(params[:zona_id])
+  end
+
   def destroy
+    @zonas = Zona.all
+    @zona = Zona.find(params[:id])
     @zona.destroy
-    respond_to do |format|
-      format.html { redirect_to zonas_url, notice: 'Zona was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_zona
