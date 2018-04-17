@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417134940) do
+ActiveRecord::Schema.define(version: 20180417140654) do
+
+  create_table "animals", force: :cascade do |t|
+    t.string "nom"
+    t.string "raza"
+    t.integer "zona_id"
+    t.integer "any_naixement"
+    t.integer "cuidador_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cuidador_id"], name: "index_animals_on_cuidador_id"
+    t.index ["zona_id"], name: "index_animals_on_zona_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,6 +39,15 @@ ActiveRecord::Schema.define(version: 20180417134940) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "zonas", force: :cascade do |t|
+    t.string "nom"
+    t.string "clima"
+    t.integer "temperatura"
+    t.integer "humitat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
