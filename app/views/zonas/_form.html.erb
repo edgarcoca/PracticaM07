@@ -1,0 +1,37 @@
+<%= form_with(model: zona, local: true) do |form| %>
+  <% if zona.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(zona.errors.count, "error") %> prohibited this zona from being saved:</h2>
+
+      <ul>
+      <% zona.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nom %>
+    <%= form.text_field :nom, id: :zona_nom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :clima %>
+    <%= form.text_field :clima, id: :zona_clima %>
+  </div>
+
+  <div class="field">
+    <%= form.label :temperatura %>
+    <%= form.number_field :temperatura, id: :zona_temperatura %>
+  </div>
+
+  <div class="field">
+    <%= form.label :humitat %>
+    <%= form.number_field :humitat, id: :zona_humitat %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

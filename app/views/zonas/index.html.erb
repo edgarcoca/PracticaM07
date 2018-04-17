@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Zonas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Clima</th>
+      <th>Temperatura</th>
+      <th>Humitat</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zonas.each do |zona| %>
+      <tr>
+        <td><%= zona.nom %></td>
+        <td><%= zona.clima %></td>
+        <td><%= zona.temperatura %></td>
+        <td><%= zona.humitat %></td>
+        <td><%= link_to 'Show', zona %></td>
+        <td><%= link_to 'Edit', edit_zona_path(zona) %></td>
+        <td><%= link_to 'Destroy', zona, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Zona', new_zona_path %>

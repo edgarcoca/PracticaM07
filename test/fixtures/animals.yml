@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nom: MyString
+  raza: MyString
+  zona: one
+  any_naixement: 1
+  cuidador: one
+
+two:
+  nom: MyString
+  raza: MyString
+  zona: two
+  any_naixement: 1
+  cuidador: two
