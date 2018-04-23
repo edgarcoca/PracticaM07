@@ -17,10 +17,6 @@ class AnimalsController < ApplicationController
     @animal = Animal.new
   end
 
-  # GET /animals/1/edit
-  def edit
-  end
-
   # POST /animals
   # POST /animals.json
   def create
@@ -37,28 +33,25 @@ class AnimalsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /animals/1
-  # PATCH/PUT /animals/1.json
-  def update
-    respond_to do |format|
-      if @animal.update(animal_params)
-        format.html { redirect_to @animal, notice: 'Animal was successfully updated.' }
-        format.json { render :show, status: :ok, location: @animal }
-      else
-        format.html { render :edit }
-        format.json { render json: @animal.errors, status: :unprocessable_entity }
-      end
-    end
+  def edit
+    @animal = Animal.find(params[:id])
   end
 
-  # DELETE /animals/1
-  # DELETE /animals/1.json
+  def update
+    @animals = Animal.all
+    @animal = Animal.find(params[:id])
+
+    @animal.update_attributes(animal_params)
+  end
+
+  def delete
+    @animal = Animal.find(params[:animal_id])
+  end
+
   def destroy
+    @animals = Animal.all
+    @animal = Animal.find(params[:id])
     @animal.destroy
-    respond_to do |format|
-      format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private

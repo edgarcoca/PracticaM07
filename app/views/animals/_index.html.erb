@@ -1,0 +1,11 @@
+<% @animals.each do |animal| %>
+  <tr>
+    <td><%= animal.nom %></td>
+    <td><%= animal.raza %></td>
+    <td><%= animal.zona.nom %></td>
+    <td><%= animal.any_naixement %></td>
+    <td><%= animal.cuidador.email %></td>
+    <td><%= link_to "Edit", edit_animal_path(animal), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Delete", animal_delete_path(animal), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>

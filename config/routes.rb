@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :animals
+  resources :animals do
+    get "delete"
+  end
   resources :zonas do
     get "delete"
   end

@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :zona_id %>
-    <%= form.text_field :zona_id, id: :animal_zona_id %>
+    <%= form.label :zona %>
+    <%= form.collection_select :zona_id, Zona.all, :id, :nom, :prompt => true %>
   </div>
 
   <div class="field">
@@ -32,8 +32,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :cuidador_id %>
-    <%= form.text_field :cuidador_id, id: :animal_cuidador_id %>
+    <%= form.label :cuidador %>
+    <%= form.collection_select :cuidador_id, User.all, :id, :email, :prompt => true %>
   </div>
 
   <div class="actions">
