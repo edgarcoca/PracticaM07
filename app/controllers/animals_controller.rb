@@ -4,7 +4,7 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    @animals = Animal.all
+    @animals = Animal.search(params[:term])
   end
 
   # GET /animals/1
@@ -15,6 +15,9 @@ class AnimalsController < ApplicationController
   # GET /animals/new
   def new
     @animal = Animal.new
+  end
+
+  def search
   end
 
   # POST /animals

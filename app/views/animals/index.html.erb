@@ -4,6 +4,11 @@
   </div>
   <div class="new-animal"></div>
 
+  <%= form_tag(animals_path, method: :get, remote: true) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name: nil %>
+  <% end %>
+
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
