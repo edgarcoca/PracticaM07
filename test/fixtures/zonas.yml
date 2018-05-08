@@ -3,11 +3,11 @@
 one:
   nom: MyString
   clima: MyString
-  temperatura: 1
-  humitat: 1
+  temperatura: 10
+  humitat: 10
 
 two:
   nom: MyString
   clima: MyString
-  temperatura: 1
-  humitat: 1
+  temperatura: 10
+  humitat: 10
